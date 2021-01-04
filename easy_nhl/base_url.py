@@ -1,0 +1,1 @@
+base_url = 'https://statsapi.web.nhl.com'
