@@ -27,7 +27,7 @@ class Division:
         """
         response = requests.get(f"{self.division_url}/{division_id}")
 
-        if response.json() == []:
+        if response.status_code != 200 or response.json()['divisions'] == []:
             return {"error": f"Division id {division_id} is not valid."}
 
-        return response.json()['divisions']
+        return response.json()['divisions'][0]

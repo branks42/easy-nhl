@@ -41,14 +41,18 @@ class Schedule:
         """
         if date_of_games and team_id:
             response = requests.get(f"{self.base_url}?date={date_of_games}&teamId={team_id}")
-            if response.json()['dates']:
+            if response.status_code != 200:
+                return {}
+            elif response.json()['dates']:
                 return response.json()['dates'][0]['games'][0]
             else:
                 return {}
 
         elif date_of_games and not team_id:
             response = requests.get(f"{self.base_url}?date={date_of_games}")
-            if response.json()['dates']:
+            if response.status_code != 200:
+                return {}
+            elif response.json()['dates']:
                 return response.json()['dates'][0]['games']
             else:
                 return []
@@ -69,7 +73,9 @@ class Schedule:
         if date_of_games and team_id:
             response = requests.get(
                 f"{self.base_url}?date={date_of_games}&expand=schedule.linescore&teamId={team_id}")
-            if response.json()['dates']:
+            if response.status_code != 200:
+                return {}
+            elif response.json()['dates']:
                 return response.json()['dates'][0]['games'][0]
             else:
                 return {}
@@ -84,7 +90,9 @@ class Schedule:
         else:
             response = requests.get(f"{self.base_url}?expand=schedule.linescore")
 
-        if response.json()['dates']:
+        if response.status_code != 200:
+            return {}
+        elif response.json()['dates']:
             return response.json()['dates'][0]['games']
         else:
             return []
@@ -100,7 +108,9 @@ class Schedule:
         if date_of_games and team_id:
             response = requests.get(
                 f"{self.base_url}?date={date_of_games}&expand=schedule.ticket&teamId={team_id}")
-            if response.json()['dates']:
+            if response.status_code != 200:
+                return {}
+            elif response.json()['dates']:
                 return response.json()['dates'][0]['games'][0]
             else:
                 return {}
@@ -115,7 +125,9 @@ class Schedule:
         else:
             response = requests.get(f"{self.base_url}?expand=schedule.ticket")
 
-        if response.json()['dates']:
+        if response.status_code != 200:
+            return {}
+        elif response.json()['dates']:
             return response.json()['dates'][0]['games']
         else:
             return []

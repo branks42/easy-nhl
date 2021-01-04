@@ -30,4 +30,4 @@ class Conference:
         if response.status_code != 200:
             return {"error": f"Conference id {conference_id} is not valid."}
 
-        return response.json()['conferences']
+        return response.json()['conferences'][0]
