@@ -11,7 +11,7 @@ setup(
     description='Making it easier to use the NHL API in python projects.',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
-    url='https://github.com/branks42/nhl-api-wrapper',
+    url='https://github.com/branks42/easy-nhl',
     author='Justin Branco',
     author_email='jbranco@nd.edu',
     license='MIT',
