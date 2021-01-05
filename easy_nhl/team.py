@@ -23,11 +23,15 @@ class Team:
 
         return response.json()['teams'][0]
 
-    def roster(self):
+    def roster(self, season=None):
         """
         Get the roster of a given team
         """
-        response = requests.get(f"{self.base_url}{self.team_id}/roster")
+        if season:
+            response = requests.get(f"{self.base_url}{self.team_id}/roster?season={season}")
+        else:
+            response = requests.get(f"{self.base_url}{self.team_id}/roster")
+
         if response.status_code != 200:
             return {"error": f"Team with ID '{self.team_id}' not found."}
 
@@ -53,11 +57,15 @@ class Team:
 
         return response.json()['teams'][0]['previousGameSchedule']['dates'][0]['games'][0]
     
-    def season_stats(self):
+    def season_stats(self, season=None):
         """
         Get a given teams current season stats.
         """
-        response = requests.get(f"{self.base_url}{self.team_id}/stats")
+        if season:
+            response = requests.get(f"{self.base_url}{self.team_id}/stats?season={season}")
+        else:
+            response = requests.get(f"{self.base_url}{self.team_id}/stats")
+
         if response.status_code != 200:
             return {"error": f"Team with ID '{self.team_id}' not found."}
 

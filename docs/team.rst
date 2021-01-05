@@ -33,7 +33,7 @@ Get info of a given team id.
 
 Roster
 ------
-Get the current roster of a given team id.
+Get the roster of a given team id.
 
 **Usage**
 
@@ -42,8 +42,10 @@ Get the current roster of a given team id.
         from easy_nhl import Team
 
         sabres = Team(7)
+        sabres_roster = sabres.roster()
 
-        sabres_info = sabres.roster()
+        # We can also get historical rosters by passing in a season
+        sabres_roster_05 = sabres.roster('20052006')
 
 Next Game
 ---------
@@ -57,7 +59,7 @@ Get a given team's next scheduled game.
 
         sabres = Team(7)
 
-        sabres_info = sabres.next_game()
+        sabres_next = sabres.next_game()
 
 Previous Game
 -------------
@@ -71,7 +73,7 @@ Get a given team's previous scheduled game.
 
         sabres = Team(7)
 
-        sabres_info = sabres.previous_game()
+        sabres_prev = sabres.previous_game()
 
 Season Stats
 ------------
@@ -84,5 +86,7 @@ Get a given teams current season stats.
         from easy_nhl import Team
 
         sabres = Team(7)
+        sabres_stats = sabres.season_stats()
 
-        sabres_info = sabres.season_stats()
+        # We can also get historical stats by passing in a season
+        sabres_stats_05 = sabres.season_stats('20052006')
