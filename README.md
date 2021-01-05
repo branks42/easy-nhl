@@ -35,6 +35,10 @@ print(Team().teams)
 # You can then use the Team class to get rosters and more information as follows:
 sabres = Team(7)
 print(sabres.roster())
+
+# You can get historical rosters as well by passing in a season.
+# All of this is gone over in more detail in the documentation....
+print(sabres.roster('20052006'))
 ```
 
 [docs]: https://easy-nhl.readthedocs.io/en/latest/

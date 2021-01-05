@@ -7,7 +7,7 @@ def read(f):
 
 setup(
     name='easy-nhl',
-    version='0.1',
+    version='0.2',
     description='Making it easier to use the NHL API in python projects.',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
