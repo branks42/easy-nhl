@@ -7,7 +7,7 @@ def read(f):
 
 setup(
     name='easy-nhl',
-    version='0.2',
+    version='0.3',
     description='Making it easier to use the NHL API in python projects.',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
@@ -18,6 +18,6 @@ setup(
     packages=find_packages(include=['easy_nhl', 'easy_nhl.*']),  # Required,
     keywords=['hockey', 'NHL', 'api', 'statistics'],
     install_requires=[
-        'requests==2.25.1'
+        'requests>=2.25.1'
     ],
     zip_safe=False)
